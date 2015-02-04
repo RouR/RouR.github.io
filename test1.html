@@ -23,7 +23,7 @@
 
 <script>
 function customersController($scope,$http) {
-  $scope.bhideDiv = false;
+  $scope.bhideDiv = true;
   $http.get("http://www.w3schools.com//website/Customers_JSON.php")
   .success(function(response) {
     $scope.names = response;
@@ -31,6 +31,7 @@ function customersController($scope,$http) {
   })
   .then(function() {
     $scope.names.push({Name:"test", Country:"data"});
+    $scope.bhideDiv = false;
   });
 }
 </script>
