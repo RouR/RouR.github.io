@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body style="background-color: coral;">
+
+<div ng-app="" ng-controller="customersController"> 
+
+<div id="hideMe" ng-show="bhideDiv ">
+  Hide me div TestData=tdddfg23454dfgkljh7i64
+</div>
+
+<div id="whiteText" style="color: coral;">
+  Invisible text TestData=ljhndsfg2fg34ew
+</div>
+
+<ul>
+  <li ng-repeat="x in names">
+    {{ x.Name + ', ' + x.Country }}
+  </li>
+</ul>
+
+</div>
+
+<script>
+function customersController($scope,$http) {
+  $scope.bhideDiv = true;
+  $http.get("http://www.w3schools.com//website/Customers_JSON.php")
+  .success(function(response) {
+    $scope.names = response;
+    $scope.names.push({Name:"json", Country:"custom"});
+  })
+  .then(function() {
+    $scope.names.push({Name:"test", Country:"data"});
+    $scope.bhideDiv = false;
+  });
+}
+</script>
+
+</body>
+</html>
