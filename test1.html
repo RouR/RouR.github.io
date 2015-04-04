@@ -25,6 +25,8 @@
 function customersController($scope,$http, $timeout) {
   $scope.bhideDiv = true;
 
+  $scope.names = [];
+  $scope.names.push({Name:"json", Country:"custom"});
   
   $scope.intervalFunction = function () {
         $timeout(function () {
