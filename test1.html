@@ -24,15 +24,7 @@
 <script>
 function customersController($scope,$http, $timeout) {
   $scope.bhideDiv = true;
-  $http.get("http://www.w3schools.com/website/Customers_JSON.php")
-  .success(function(response) {
-    $scope.names = response;
-    $scope.names.push({Name:"json", Country:"custom"});
-  })
-  .finally(function() {
-    $scope.names.push({Name:"test", Country:"data"});
-    $scope.bhideDiv = false;
-  });
+
   
   $scope.intervalFunction = function () {
         $timeout(function () {
